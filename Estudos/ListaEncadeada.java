@@ -75,28 +75,28 @@ class Lista{
 			numElementos++;	
 		}
 	}
+	
+		// Método para imprimir a lista
+		public void printList(){
+			Elemento percorre = new Elemento();
+			percorre = p.getProx();
+			while (percorre != null){
+				System.out.println(percorre.getNome());
+				percorre = percorre.getProx();
+			}
+		}
 }
 
 public class ListaEncadeada{
 	public static void main(String[] args){
-		System.out.println("OK");
-		
+
+		// Teste
 		Lista l = new Lista();
-		System.out.println(l.numElementos);
-		System.out.println(l.p);
-		System.out.println(l.u);
 		l.add("Bruno");
-		System.out.println(l.numElementos);
-		System.out.println(l.p.getNome());
-		System.out.println(l.u.getNome());
 		l.add("Higor");
-		System.out.println(l.numElementos);
-		System.out.println(l.p.getNome());
-		System.out.println(l.u.getNome());
 		l.add("Andre");
+		l.printList();
 		System.out.println(l.numElementos);
-		System.out.println(l.p.getNome());
-		System.out.println(l.u.getNome());
 		
 	}
 	
