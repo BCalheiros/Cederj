@@ -85,6 +85,42 @@ class Lista{
 				percorre = percorre.getProx();
 			}
 		}
+		
+		// Método para remover um elemento da lista
+		public void remove(String nome){
+			// Cria o nó que ira percorrer a lista e o sentinela que o seguirá
+			Elemento percorre = new Elemento();
+			Elemento sentinela = new Elemento();
+			percorre = p.getProx();
+			sentinela = p;
+			// Enquanto não chega no ultimo elemento da lista
+			while (percorre != null){
+				// Se encontrar o nome procurado
+				if(percorre.getNome().equals(nome)){
+					// Se for o ultimo elemento da lista
+					if(percorre.getProx() == null){
+						sentinela.setProx(null);
+						u = sentinela;
+						numElementos--;
+						percorre = null;
+						break;
+					}
+					else {
+					// Se não for o ultimo elemento da lista
+					sentinela.setProx(percorre.getProx());
+					percorre.setProx(null);
+					percorre = null;
+					numElementos--;
+					break;
+					}
+				}
+				// Avanca o percorre e o sentinela
+				percorre = percorre.getProx();
+				sentinela = sentinela.getProx();
+			}
+			// Chama o método Garbage Collector
+			System.gc();
+		}
 }
 
 public class ListaEncadeada{
@@ -95,9 +131,23 @@ public class ListaEncadeada{
 		l.add("Bruno");
 		l.add("Higor");
 		l.add("Andre");
+		l.add("Wagner");
+		l.add("Maria");
+		l.add("Fatima");
 		l.printList();
 		System.out.println(l.numElementos);
 		
+		l.remove("Higor");
+		l.printList();
+		System.out.println(l.numElementos);
+		
+		l.remove("Fatima");
+		l.printList();
+		System.out.println(l.numElementos);
+		
+		l.remove("Bruno");
+		l.printList();
+		System.out.println(l.numElementos);
 	}
 	
 }
